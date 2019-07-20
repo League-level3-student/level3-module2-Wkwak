@@ -11,6 +11,26 @@ public class BubbleSorter extends Sorter{
 	@Override
 	void sort(int[] array, SortingVisualizer display) {
 		
+		boolean ordered = false;
+		int numSwaps = 0;
+		
+		while(!ordered) {
+			display.updateDisplay();
+			for(int i = 1; i < array.length; i++) {
+				if(array[i]<array[i-1]) {
+					int a = array[i-1];
+					array[i-1] = array[i];
+					array[i] = a;
+					numSwaps++;
+				}
+			}
+			if(numSwaps==0) {
+				ordered = true;
+			}
+		}
+		
+		
 	}
+	
 	
 }
