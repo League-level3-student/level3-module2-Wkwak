@@ -36,6 +36,7 @@ class _01_SwappingDigits {
 	public static void sortIntArray(int[] arr) {
 		boolean ordered = false;
 		int numSwaps = 0;
+		
 		while(!ordered) {
 			for(int i = 1; i < arr.length; i++) {
 				if(arr[i]<arr[i-1]) {
@@ -49,15 +50,19 @@ class _01_SwappingDigits {
 				ordered = true;
 			}
 		}
+		
 	}
 
 	// 3. Complete the method so that it finds the middle number in the array.
 	// *Hint* it helps to sort it first.
 	// *Double Hint* Use the method you already wrote in step 2 to sort it
 	public static int findMiddle(int[] arr) {
-		for (int i = 0; i < arr.length; i++) {
-			sortIntArray(arr);
+		sortIntArray(arr);
+		if(arr.length%2 == 0) {
+			return arr[(arr.length / 2)-1];
+		}else {
+			return arr[arr.length / 2];
 		}
-		return arr[arr.length / 2];
+		
 	}
 }
