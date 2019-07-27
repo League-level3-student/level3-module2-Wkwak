@@ -36,13 +36,13 @@ public class _03_ExponentialSearch {
 			min = array.length - 1;
 		}
 		//9. use the binary search method you wrote using the following parameters:
-		_01_BinarySearch bSearch = new _01_BinarySearch();
 		//		the array to be searched
-		return bSearch.binarySearch(array, min, counter/2, value);
 		//		half of the counter
 		//		minimum
 		//		the value to be found
+		int x = _01_BinarySearch.binarySearch(array, counter/2, min, value);
 		
 		//10. return the result
+		return x;
 	}
 }
