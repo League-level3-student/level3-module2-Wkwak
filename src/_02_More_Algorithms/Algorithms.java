@@ -51,26 +51,56 @@ public class Algorithms {
 		for (int i = 0; i < message.size(); i++) {
 			everything += message.get(i);
 		}
-		if(everything.contains("... --- ...")) {
+		if (everything.contains("... --- ...")) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 
 	}
-	
+
 	public static List<Double> sortScores(List<Double> results) {
-		for(int i = 0; i < results.size()-1; i++) {
+		for (int i = 0; i < results.size() - 1; i++) {
 			int index = i;
 			for (int j = i + 1; j < results.size(); j++) {
-				if(results.get(j) < results.get(index)) {
+				if (results.get(j) < results.get(index)) {
 					index = j;
 				}
-				double temp = results.get(index);
-				results.set(index,results.get(i));
-				results.set(i, temp);
 			}
+			double temp = results.get(index);
+			results.set(index, results.get(i));
+			results.set(i, temp);
 		}
 		return results;
+	}
+	
+	public static List<String> sortDNA(List<String> DNA){
+		for(int i = 0; i < DNA.size(); i++) {
+			int shortest = i;
+			for(int j = i + 1; j < DNA.size(); j++) {
+				if(DNA.get(j).length() < DNA.get(i).length()) {
+					shortest = j;
+				}
+			}
+			String temp = DNA.get(shortest);
+			DNA.set(shortest, DNA.get(i));
+			DNA.set(i, temp);
+		}
+		return DNA;
+	}
+	
+	public static List<String> sortWords(List<String> words){
+		for(int i = 0; i < words.size(); i++) {
+			int lowOrder = i; 
+			for(int j = i+1; j < words.size(); j++) {
+				if(words.get(j).compareTo(words.get(lowOrder)) < 0) {
+					lowOrder = j;
+				}
+			}
+			String temp = words.get(lowOrder);
+			words.set(lowOrder, words.get(i));
+			words.set(i, temp);
+		}
+		return words;
 	}
 }
